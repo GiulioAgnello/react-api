@@ -1,22 +1,38 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 axios;
-const url = "https://lanciweb.github.io/demo/api/actors/";
+let baseurlApi = "https://lanciweb.github.io/demo/api/actors/";
 
 export default function Main() {
   // presa dei dati
   const [actors, setActors] = useState([]);
+  const [femaleActor, setFemaleActor] = useState(baseurlApi);
+  const [maleActor, setmaleActor] = useState("actresses/");
 
   function fetchactor() {
-    axios.get(url).then((res) => {
+    axios.get(`${baseurlApi}`).then((res) => {
       setActors(res.data);
-      console.log(res.data);
     });
+    const setFemaleActor = () => {
+      baseurlApi = "https://lanciweb.github.io/demo/api/actresses/";
+    };
+    const setmaleActor = () => {
+      baseurlApi = baseurlApi;
+    };
   }
-  useEffect(fetchactor, []);
+  useEffect(fetchactor, setFemaleActor, setmaleActor, []);
   return (
     <>
-      <div className="container ">
+      <div className="bottoncontainer d-flex justify-content-center m-3 gap-2">
+        <button onClick={setFemaleActor()} className="btn btn-light">
+          Actor
+        </button>
+        <button onClick={setmaleActor()} className="btn btn-light">
+          Actress
+        </button>
+      </div>
+
+      <div className="container-sm ">
         <div className="row g-2">
           {actors.map((actor) => (
             <div key={actor.id} className="col-3  ">

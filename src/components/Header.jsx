@@ -1,3 +1,7 @@
 export default function Header() {
-  return <h1>FAMOUS</h1>;
+  return (
+    <div>
+      <h1>FAMOUS MALE ACTORS</h1>
+    </div>
+  );
 }
