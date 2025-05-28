@@ -7,7 +7,7 @@ export default function Main() {
   // presa dei dati
   const [actors, setActors] = useState([]);
   const [femaleActor, setFemaleActor] = useState(baseurlApi);
-  const [maleActor, setmaleActor] = useState("actresses/");
+  const [maleActor, setmaleActor] = useState(femaleActor);
 
   function fetchactor() {
     axios.get(`${baseurlApi}`).then((res) => {
