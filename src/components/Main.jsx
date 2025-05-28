@@ -13,23 +13,19 @@ export default function Main() {
     axios.get(`${baseurlApi}`).then((res) => {
       setActors(res.data);
     });
-    const setFemaleActor = () => {
-      baseurlApi = "https://lanciweb.github.io/demo/api/actresses/";
-    };
-    const setmaleActor = () => {
-      baseurlApi = baseurlApi;
-    };
+    // const setFemaleActor = () => {
+    //   baseurlApi = "https://lanciweb.github.io/demo/api/actresses/";
+    // };
+    // const setmaleActor = () => {
+    //   baseurlApi = baseurlApi;
+    // };
   }
-  useEffect(fetchactor, setFemaleActor, setmaleActor, []);
+  useEffect(fetchactor, []);
   return (
     <>
       <div className="bottoncontainer d-flex justify-content-center m-3 gap-2">
-        <button onClick={setFemaleActor()} className="btn btn-light">
-          Actor
-        </button>
-        <button onClick={setmaleActor()} className="btn btn-light">
-          Actress
-        </button>
+        <button className="btn btn-light">Actor</button>
+        <button className="btn btn-light">Actress</button>
       </div>
 
       <div className="container-sm ">
